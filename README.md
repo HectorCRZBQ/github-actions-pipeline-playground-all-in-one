@@ -179,15 +179,27 @@ Modificamos el conatenido del index.html de /src:
 1. Realizar cambios en el código fuente (src/):
    ```bash
    # Editar src/index.html
-   git add src/index.html
+   git add . # Añadimos el main.tf, index.html y más archivos modificados
    git commit -m "Update website content"
    git push origin main
    ```
+Añadimos el "." porque se modifican los valores del main.tf con el nombre del bucket y si no se actualizan en el repositorio, al hacer el pipeline no va a reconocer un bucket S3 existente y va a dar error, concretamente el siguiente error:
 
+![Imagen](/images/image-16.png)
 
 2. Verificar la ejecución del pipeline en la pestaña "Actions" de tu repositorio.
 
+![Imagen](/images/image-17.png)
+
 3. Visitar la URL del bucket S3 (disponible en los outputs de Terraform) para ver tu sitio desplegado.
+
+Se ha creado correctamente la tabla DynamoDB:
+
+![Imagen](/images/image-18.png)
+
+Se ha creado correctamente el Bucket S3:
+
+![Imagen](/images/image-19.png)
 
 ## Estructura del Proyecto
 
@@ -196,6 +208,45 @@ Modificamos el conatenido del index.html de /src:
 - `iac/`: Código de Terraform para infraestructura
 - `scripts/`: Scripts de utilidad
 
+   ```bash
+   ├── assets
+   │   ├── pipeline_ok.png
+   │   └── s3-setup_block_public_temporary_disabled.png
+   ├── iac
+   │   ├── main.tf
+   │   ├── outputs.tf
+   │   └── variables.tf
+   ├── images
+   │   ├── image-10.png
+   │   ├── image-11.png
+   │   ├── image-12.png
+   │   ├── image-13.png
+   │   ├── image-14.png
+   │   ├── image-15.png
+   │   ├── image-16.png
+   │   ├── image-17.png
+   │   ├── image-18.png
+   │   ├── image-19.png
+   │   ├── image-1.png
+   │   ├── image-2.png
+   │   ├── image-3.png
+   │   ├── image-4.png
+   │   ├── image-5.png
+   │   ├── image-6.png
+   │   ├── image-7.png
+   │   ├── image-8.png
+   │   └── image-9.png
+   ├── Makefile
+   ├── package.json
+   ├── README.md
+   ├── scripts
+   │   └── setup.sh
+   └── src
+      ├── index.html
+      └── styles
+         └── main.css
+
+   ```
 
 
 ## Limpieza
