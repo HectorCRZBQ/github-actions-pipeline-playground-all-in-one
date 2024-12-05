@@ -10,7 +10,7 @@ terraform {
 
   backend "s3" {
     # Estos valores deben ser proporcionados durante terraform init
-    bucket         = "NOMBRE_BUCKET_ESTADO" # <<<<<<<<<<<<<<<<<<<<<<<<<  ACTUALIZAR
+    bucket         = "terraform-state-619071315476" # <<<<<<<<<<<<<<<<<<<<<<<<<  ACTUALIZAR
     region         = "eu-west-1"            # <<<<<<<<<<<<<<<<<<<<<<<<<  ACTUALIZAR (acorde con variables.tf)
     key            = "terraform.tfstate"
     dynamodb_table = "terraform-lock"
